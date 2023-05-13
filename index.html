@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Verificación del ranking global de David</title>
+  </head>
+  <body>
+    <h1>$(urlfetch https://api.example.com/ranking)</h1>
+    <script>
+      fetch('https://gdbrowser.com/u/DavidCorpusGD')
+        .then(response => response.text())
+        .then(html => {
+          if (html.includes('let numRank = parseInt("0")')) {
+            document.querySelector('h1').innerText = 'David no tiene Global Rank. (Por favor, no spamear este comando.)';
+          } else {
+            document.querySelector('h1').innerText = 'David sí tiene Global Rank!';
+          }
+        })
+        .catch(error => console.log(error));
+    </script>
+  </body>
+</html>
